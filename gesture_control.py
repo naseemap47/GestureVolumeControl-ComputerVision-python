@@ -13,7 +13,10 @@ while True:
     success, img = cap.read()
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     result = hand.process(img_rgb)
-    print(result.multi_hand_landmarks)
+    # print(result.multi_hand_landmarks)
+    if result.multi_hand_landmarks:
+        for hand_lm in result.multi_hand_landmarks:
+            mp_draw.draw_landmarks(img, hand_lm)
 
     c_time = time.time()
     fps = 1 / (c_time - p_time)
