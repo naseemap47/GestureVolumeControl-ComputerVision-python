@@ -34,8 +34,11 @@ while True:
                     cv2.circle(img, (cx, cy), 8, (255, 0, 255), cv2.FILLED)
 
                     length = math.hypot(x2- x1, y2 - y1)
-                    print(length)
-
+                    # print(length)
+                    if length < 26:
+                        cv2.circle(img, (cx, cy), 8, (0, 255, 0), cv2.FILLED)
+                    if length > 200:
+                        cv2.circle(img, (cx, cy), 8, (0, 0, 255), cv2.FILLED)
 
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
 
