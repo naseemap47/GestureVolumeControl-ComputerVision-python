@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import math
+import numpy as np
 
 cap = cv2.VideoCapture(0)
 p_time = 0
@@ -28,11 +29,11 @@ def set_master_volume(volume):
     proc.wait()
 
 
-print("Current volume: ", get_master_volume())
-set_master_volume(0)
-print("Current volume (changed): ", get_master_volume())
-set_master_volume(50)
-print("Current volume (changed): ", get_master_volume())
+# print("Current volume: ", get_master_volume())
+# set_master_volume(0)
+# print("Current volume (changed): ", get_master_volume())
+# set_master_volume(50)
+# print("Current volume (changed): ", get_master_volume())
 
 while True:
     success, img = cap.read()
@@ -63,6 +64,11 @@ while True:
                         cv2.circle(img, (cx, cy), 8, (0, 255, 0), cv2.FILLED)
                     if length > 200:
                         cv2.circle(img, (cx, cy), 8, (0, 0, 255), cv2.FILLED)
+
+                    # Hand - 25 to 200
+                    # Vol - 0 to 100
+                    vol = np.interp(length, [25, 200], [0, 100])
+                    print(vol)
 
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
 
