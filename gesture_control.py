@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
+import math
 
 cap = cv2.VideoCapture(0)
 p_time = 0
@@ -31,6 +32,9 @@ while True:
                     cv2.circle(img, (x2, y2), 8, (255, 0, 255), cv2.FILLED)
                     cv2.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
                     cv2.circle(img, (cx, cy), 8, (255, 0, 255), cv2.FILLED)
+
+                    length = math.hypot(x2- x1, y2 - y1)
+                    print(length)
 
 
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
