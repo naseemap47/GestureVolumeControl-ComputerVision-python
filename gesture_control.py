@@ -12,6 +12,7 @@ mp_hand = mp.solutions.hands
 hand = mp_hand.Hands()
 mp_draw = mp.solutions.drawing_utils
 
+vol = 0
 vol_bar = 400
 
 while True:
@@ -56,6 +57,11 @@ while True:
     # Volume Bar
     cv2.rectangle(img, (50, 150), (85, 400), (0, 255, 0), 3)
     cv2.rectangle(img, (50, int(vol_bar)), (85, 400), (0, 255, 0), cv2.FILLED)
+    cv2.putText(
+        img, f'{int(vol)} %', (40, 450),
+        cv2.FONT_HERSHEY_PLAIN, 2,
+        (255, 0, 255), 2
+    )
 
     c_time = time.time()
     fps = 1 / (c_time - p_time)
