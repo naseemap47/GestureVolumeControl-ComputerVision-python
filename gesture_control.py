@@ -5,9 +5,15 @@ import time
 cap = cv2.VideoCapture(0)
 p_time = 0
 
+mp_hand = mp.solutions.hands
+hand = mp_hand.Hands()
+mp_draw = mp.solutions.drawing_utils
+
 while True:
     success, img = cap.read()
-
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    result = hand.process(img_rgb)
+    print(result.multi_hand_landmarks)
 
     c_time = time.time()
     fps = 1 / (c_time - p_time)
