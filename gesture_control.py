@@ -24,9 +24,10 @@ while True:
                 # print(lm_list)
                 if len(lm_list) > 8:
                     # print(lm_list[4], lm_list[8])
-
                     x1, y1 = lm_list[4][1], lm_list[4][2]
-                    print((x1, y1))
+                    x2, y2 = lm_list[8][1], lm_list[8][2]
+                    cv2.circle(img, (x1, y1), 8, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (x2, y2), 8, (255, 0, 255), cv2.FILLED)
 
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
 
