@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 p_time = 0
 
 mp_hand = mp.solutions.hands
-hand = mp_hand.Hands()
+hand = mp_hand.Hands(max_num_hands=1)
 mp_draw = mp.solutions.drawing_utils
 
 vol = 0
