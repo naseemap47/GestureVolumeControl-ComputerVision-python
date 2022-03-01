@@ -12,6 +12,8 @@ mp_hand = mp.solutions.hands
 hand = mp_hand.Hands()
 mp_draw = mp.solutions.drawing_utils
 
+vol_bar = 400
+
 while True:
     success, img = cap.read()
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -47,7 +49,13 @@ while True:
                     vol = np.interp(length, [25, 200], [0, 100])
                     set_master_volume(vol)
 
+                    vol_bar = np.interp(length, [25, 200], [400, 150])
+
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
+
+    # Volume Bar
+    cv2.rectangle(img, (50, 150), (85, 400), (0, 255, 0), 3)
+    cv2.rectangle(img, (50, int(vol_bar)), (85, 400), (0, 255, 0), cv2.FILLED)
 
     c_time = time.time()
     fps = 1 / (c_time - p_time)
