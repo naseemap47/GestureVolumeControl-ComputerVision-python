@@ -68,7 +68,7 @@ while True:
                     # Hand - 25 to 200
                     # Vol - 0 to 100
                     vol = np.interp(length, [25, 200], [0, 100])
-                    print(vol)
+                    set_master_volume(vol)
 
             mp_draw.draw_landmarks(img, hand_lm, mp_hand.HAND_CONNECTIONS)
 
