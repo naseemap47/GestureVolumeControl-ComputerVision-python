@@ -22,7 +22,7 @@
  <a href="https://github.com/naseemap47">
     <img alt="Github" src="https://img.shields.io/badge/Github-black?logo=github">
  </a>
- <a href="https://github.com/naseemap47/TrafficSign-ComputerVision-python">
+ <a href="https://github.com/naseemap47/GestureVolumeControl-ComputerVision-python">
     <img alt="VS Code" src="https://img.shields.io/badge/IDE-pyCharm-yellowgreen?color=brightgreen&logo=pycharm">
   </a>
 </p>
@@ -42,6 +42,13 @@ Creating a Gesture volume control using OpenCV and Mediapipe in python
 * To change system Volume
   * subprocess (Linux)
   * pycaw (Windows)
+
+## Project Setup
+* Clone project
+* Open and RUN - **gesture_control.py**
+* Web-cam automaticaly open
+* Change distace betwen Index and Thumb finger
+* Analyse system Volume Level
 
 ## License
 [![CC0](http://seawisphunter.com/minibuffer/api/MIT-License-transparent.png)](https://github.com/naseemap47/GestureVolumeControl-ComputerVision-python/blob/master/LICENSE)
